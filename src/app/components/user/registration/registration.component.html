@@ -1,0 +1,61 @@
+
+<mat-card>
+    <mat-card-header>
+    <h1>Niagara On The Lake Hydro</h1>
+    </mat-card-header>
+    <mat-card-title>
+    <h2>Registration Page</h2>
+    </mat-card-title>
+    
+<div class="example-container">
+<form  [formGroup]="form" (ngSubmit)="submit()">
+    
+  
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name"
+        id="name"
+        type="text"
+        >
+
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+ 
+  
+            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+        </div>
+    
+      </mat-form-field>
+      <br>
+
+
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput  formControlName="email"
+        id="email"
+        type="text"
+        >
+        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+            <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+        </div>
+    
+      </mat-form-field>
+      <br>
+      <mat-form-field class="field" appearance="fill">
+        <mat-label>Postal Code</mat-label>
+        <input matInput #postalCode maxlength="7" placeholder="Ex. A1A 1A1" value="A1A 1A1" formControlName="PostalCode"
+        id="PostalCode"
+        type="text"
+        >
+        <mat-hint align="end">{{postalCode.value.length}} / 7</mat-hint>
+
+        <div *ngIf="f['PostalCode'].touched && f['PostalCode'].invalid" class="alert alert-danger">
+            <div *ngIf="f['PostalCode'].errors && f['PostalCode'].errors['required']">Postal Code is required.</div>
+        </div>
+      </mat-form-field> <br>
+      <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+  </form>
+</div>
+  
+</mat-card>
