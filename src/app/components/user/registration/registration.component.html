@@ -9,7 +9,7 @@
     </mat-card-title>
     
 <div class="example">
-<form  [formGroup]="form" (ngSubmit)="submit()">
+<form  [formGroup]="form" (ngSubmit)="test()">
     
   <mat-icon>perm_identity</mat-icon>
       <mat-form-field class="field" appearance="fill">
@@ -17,12 +17,10 @@
         <input matInput formControlName="name"
         id="name"
         type="text"
-        style="text-align:center;">
+       >
 
         <div *ngIf="f['name'].touched && f['name'].invalid" class="alert-danger">
             <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
- 
-  
             <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
         </div>
     
