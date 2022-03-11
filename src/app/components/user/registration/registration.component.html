@@ -1,45 +1,37 @@
-
-
-<mat-card style="background: rgba(230, 230, 230, 0.438);"> 
-    <mat-card-header>
+<mat-card style="background: rgba(230, 230, 230, 0.438);">
+  <mat-card-header>
     <h1>Niagara On The Lake Hydro</h1>
-    </mat-card-header>
-    <mat-card-title>
+  </mat-card-header>
+  <mat-card-title>
     <h2>Registration Page</h2>
-    </mat-card-title>
-    
-<div class="example">
-<form  [formGroup]="form" (ngSubmit)="test()">
-    
-  <mat-icon>perm_identity</mat-icon>
+  </mat-card-title>
+
+  <div class="example">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <mat-icon>perm_identity</mat-icon>
       <mat-form-field class="field" appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name"
-        id="name"
-        type="text"
-       >
+        <input matInput formControlName="name" id="name" type="text">
 
         <div *ngIf="f['name'].touched && f['name'].invalid" class="alert-danger">
-            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
-            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be 3 character.</div>
+          <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+          <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be atleast 3 characters long.</div>
         </div>
-    
+
       </mat-form-field>
       <br>
 
       <mat-icon>alternate_email</mat-icon>
       <mat-form-field class="field" appearance="fill">
-  
+
         <mat-label>Email</mat-label>
-        <input matInput  formControlName="email"
-        id="email"
-        type="text"
-        >
+        <input matInput formControlName="email" id="email" type="text">
         <div *ngIf="f['email'].touched && f['email'].invalid" class="alert-danger">
-            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
-            <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+          <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+          <div *ngIf="f['email'].errors && f['email'].errors['email']">Please enter valid email address.</div>
         </div>
-    
+
       </mat-form-field>
       <br>
 
@@ -47,18 +39,17 @@
       <mat-form-field class="field" appearance="fill">
         <mat-label>Postal Code</mat-label>
         <input matInput #postalCode maxlength="7" placeholder="Ex. A1A 1A1" value="A1A 1A1" formControlName="PostalCode"
-        id="PostalCode"
-        type="text"
-        >
+          id="PostalCode" type="text">
         <mat-hint align="end">{{postalCode.value.length}} / 7</mat-hint>
 
         <div *ngIf="f['PostalCode'].touched && f['PostalCode'].invalid" class=" alert-danger">
-            <div *ngIf="f['PostalCode'].errors && f['PostalCode'].errors['required']">Postal Code is required.</div>
+          <div *ngIf="f['PostalCode'].errors && f['PostalCode'].errors['required']">Postal Code is required.</div>
+          <div *ngIf="f['PostalCode'].errors && f['PostalCode'].errors['minlength']">Please enter correct Postal Code
+            (Ex. A1B 2C3)</div>
         </div>
       </mat-form-field> <br>
       <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
-  </form>
-</div>
-  
-</mat-card>
+    </form>
+  </div>
 
+</mat-card>

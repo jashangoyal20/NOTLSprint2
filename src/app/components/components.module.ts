@@ -10,15 +10,17 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './user/login/login.component';
 
 @NgModule({
   declarations: [
     UserComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   exports: [
     UserComponent,
-    RegistrationComponent],
+    RegistrationComponent, LoginComponent],
   imports: [
     CommonModule,
     RouterModule,

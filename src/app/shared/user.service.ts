@@ -8,7 +8,7 @@ import { HttpClient } from "@angular/common/http";
 export class UserService {
 
   constructor( private http: HttpClient) { }
-  readonly BaseURI = 'http://localhost:54277/api';
+  readonly BaseURI = 'https://casptonesprinters.azurewebsites.net/api';
 
  
   register(email : string, name : string , pcode : string) {
@@ -17,7 +17,7 @@ export class UserService {
      // UserName: this.formModel.value.UserName,
       Email : email,
       FullName : name,
-      Password : pcode
+      PostalCode : pcode
     };
     return this.http.post(this.BaseURI + '/ApplicationUser/Register', body);
   }
