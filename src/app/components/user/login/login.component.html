@@ -1,1 +1,44 @@
-<h3>Login Page - In Progress</h3>
+<mat-card style="background: rgba(230, 230, 230, 0.438);">
+    <mat-card-header>
+      <h1>Niagara On The Lake Hydro</h1>
+    </mat-card-header>
+    <mat-card-title>
+      <h2>Login Page</h2>
+      <h4>On login you will be able to save carbon footprint</h4>
+    </mat-card-title>
+  
+    <div class="example">
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+    <mat-icon>perm_identity</mat-icon>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="name" id="name" type="text">
+
+      <div *ngIf="f['name'].touched && f['name'].invalid" class="alert-danger">
+        <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+        <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Name should be atleast 3 characters long.</div>
+        <div *ngIf="f['name'].errors && f['name'].errors['maxlength']">Name should not be more than 20 characters long.</div>
+      </div>
+
+    </mat-form-field>
+    <br>
+    <br>
+
+    <mat-icon>home</mat-icon>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Postal Code</mat-label>
+      <input matInput #postalCode maxlength="7" placeholder="Ex. A1A 1A1" value="A1A 1A1" formControlName="PostalCode"
+        id="PostalCode" type="text">
+      <mat-hint align="end">{{postalCode.value.length}} / 7</mat-hint>
+
+      <div *ngIf="f['PostalCode'].touched && f['PostalCode'].invalid" class=" alert-danger">
+        <div *ngIf="f['PostalCode'].errors && f['PostalCode'].errors['required']">Postal Code is required.</div>
+        <div *ngIf="f['PostalCode'].errors && f['PostalCode'].errors['minlength']">Please enter correct Postal Code
+          (Ex. A1B 2C3)</div>
+      </div>
+    </mat-form-field> <br>
+    <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+  </form>
+  </div>
+  </mat-card>
