@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EmailService } from 'src/app/services/email.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor(private toastr: ToastrService, private service: UserService, private router: Router) { }
+  constructor(private toastr: ToastrService, private service: UserService, private router: Router, private emailService:EmailService) { }
 
   ngOnInit() {
 
@@ -28,6 +29,7 @@ export class RegistrationComponent implements OnInit {
 
   submit() {
 
+    this.sendMail();
     console.log(this.form.value.email, this.form.value.name, this.form.value.PostalCode)
     this.service.register(this.form.value.email, this.form.value.name, this.form.value.PostalCode).subscribe(
       (res: any) => {
@@ -46,10 +48,12 @@ export class RegistrationComponent implements OnInit {
             switch (element.code) {
               case 'DuplicateUserName':
                 this.toastr.error('Username is already taken', 'Registration failed.');
+                this.sendMail();
                 break;
 
               default:
                 this.toastr.error(element.description, 'Registration failed.');
+                this.sendMail();
                 break;
             }
           });
@@ -62,6 +66,18 @@ export class RegistrationComponent implements OnInit {
 
     );
 
+  }
+
+
+  sendMail(){
+    alert("jjj");
+    let email  = this.form.value.email;
+    let reqObj = {
+      email:email
+    }
+    this.emailService.sendMessage(reqObj).subscribe(data=>{
+      console.log(data);
+    })
   }
 
 }

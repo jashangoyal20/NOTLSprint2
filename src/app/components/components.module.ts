@@ -10,6 +10,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from  '@angular/material/toolbar';
+import {  MatSidenavModule} from '@angular/material/sidenav'
+import {   MatListModule } from '@angular/material/list'
+
 import { LoginComponent } from './user/login/login.component';
 import { HomeComponent } from './user/home/home.component';
 
@@ -31,7 +35,10 @@ import { HomeComponent } from './user/home/home.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ]
 })
 export class ComponentsModule { }

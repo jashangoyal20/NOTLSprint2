@@ -1,5 +1,11 @@
-h3{
-  color: aliceblue;
-  text-align: center;
-  font-size: xx-large;
+
+.parent {
+  
+  justify-content: center;
+  background: rgba(176, 185, 0, 0.314);
+  opacity: 0.5;  
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
