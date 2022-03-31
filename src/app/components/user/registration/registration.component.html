@@ -39,7 +39,7 @@
       <mat-icon>home</mat-icon>
       <mat-form-field class="field" appearance="fill">
         <mat-label>Postal Code</mat-label>
-        <input matInput #postalCode maxlength="7" placeholder="Ex. A1A 1A1" value="A1A 1A1" formControlName="PostalCode"
+        <input matInput #postalCode maxlength="7" placeholder="Ex. A1A 1A1" onkeyup="this.value = this.value.toUpperCase();" value="A1A 1A1" formControlName="PostalCode"
           id="PostalCode" type="text">
         <mat-hint align="end">{{postalCode.value.length}} / 7</mat-hint>
 
