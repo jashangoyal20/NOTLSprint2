@@ -26,11 +26,6 @@ export class RegistrationComponent implements OnInit {
     return this.form.controls;
   }
 
-  value : any;
-  postalCode() {
-  //  this.value = this.form.value.PostalCode.toUpperCase();
-    console.log("Hello") 
-  }
   submit() {
 
     console.log(this.form.value.email, this.form.value.name, this.form.value.PostalCode)
