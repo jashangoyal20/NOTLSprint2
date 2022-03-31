@@ -1,13 +1,13 @@
-<mat-toolbar>
-  <mat-toolbar-row class="parent">
-    <button mat-icon-button>
+<mat-toolbar class="homepagecss">
+  <mat-toolbar-row>
+    <!-- <button mat-icon-button>
       <mat-icon >menu</mat-icon>
-    </button>
-    <h1>SimpleCRM</h1>
+    </button> -->
+    <h1 class="h1"><a href="https://www.notlhydro.com/" rel="home">Niagara On The Lake Hydro Inc.</a></h1>
     <span class="menu-spacer"></span>
-    <div>
-      <a mat-button [routerLink]="'/accounts'"> Registration </a>
-      <a mat-button [routerLink]="'/create-account'"> login </a>
+    <div class="align">
+      <a mat-button [routerLink]="'/user/registration'"> Registration </a>
+      <a mat-button [routerLink]="'/login'"> login </a>
  
 
     </div>
@@ -15,6 +15,18 @@
 
   
 </mat-toolbar>
+
+<!-- <mat-card>
+  <div class="alert alert-info">
+  <strong>Angular Material Toolbar Component</strong>
+  </div>
+  </mat-card>
+  <mat-card>
+  <h2>Simple Toolbar</h2>
+  <mat-toolbar>Angular Material Toolbar</mat-toolbar>
+  </mat-card> -->
+
+
   
 <!-- <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
 </nav> -->

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         //this.router.navigateByUrl('/home');
         this.form.reset();
           this.toastr.success('New user created!', 'Login successful.');
-          setTimeout(() => { this.router.navigate(['/home']); }, 2000);
+          setTimeout(() => { this.router.navigate(['/home']); }, 200);
       },
       err => {
         if (err.status == 400)

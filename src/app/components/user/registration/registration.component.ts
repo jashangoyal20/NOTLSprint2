@@ -29,16 +29,16 @@ export class RegistrationComponent implements OnInit {
 
   submit() {
 
-    this.sendMail();
+   
     console.log(this.form.value.email, this.form.value.name, this.form.value.PostalCode)
     this.service.register(this.form.value.email, this.form.value.name, this.form.value.PostalCode).subscribe(
       (res: any) => {
 
         if (res.succeeded) {
-
+          this.sendMail();
           this.form.reset();
           this.toastr.success('New user created!', 'Registration successful.');
-          setTimeout(() => { this.router.navigate(['/login']); }, 5000);
+          setTimeout(() => { this.router.navigate(['/login']); }, 1000);
 
         } 
         else

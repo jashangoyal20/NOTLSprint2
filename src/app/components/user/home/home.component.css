@@ -9,3 +9,18 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.homepagecss{
+  justify-content: center;
+ background: rgba(163, 151, 151, 0.4);
+  
+  width: 100%;
+}
+
+a{
+  color: black;
+}
+
+.align{
+  align-content: right;
+}

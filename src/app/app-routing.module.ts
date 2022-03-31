@@ -34,7 +34,7 @@ import { HomeComponent } from './components/user/home/home.component';
 
 const routes: Routes = [
 
-  {path:'',redirectTo:'/user/registration',pathMatch:'full'},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
 
   {
 
