@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
    form = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+    UserName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     PostalCode: new FormControl('', [Validators.required, Validators.maxLength(7)])
   });
 
@@ -28,11 +28,14 @@ export class LoginComponent implements OnInit {
     this.service.login(this.form.value).subscribe(
       (res: any) => {
         console.log(res)
-        this.router.navigateByUrl('/home');
+        //this.router.navigateByUrl('/home');
+        this.form.reset();
+          this.toastr.success('New user created!', 'Login successful.');
+          setTimeout(() => { this.router.navigate(['/home']); }, 2000);
       },
       err => {
         if (err.status == 400)
-          this.toastr.error('Incorrect username or password.', 'Authentication failed.');
+          this.toastr.error('Incorrect Username or Postal Code.', 'Authentication failed.');
         else{
           console.log(err);
           console.log(this.form.value)

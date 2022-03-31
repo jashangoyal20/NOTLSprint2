@@ -11,12 +11,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './user/login/login.component';
+import { HomeComponent } from './user/home/home.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   exports: [
     UserComponent,

@@ -28,6 +28,7 @@ import { UserComponent } from './components/user/user.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 
 import { LoginComponent } from './components/user/login/login.component';
+import { HomeComponent } from './components/user/home/home.component';
 
 
 
@@ -43,7 +44,8 @@ const routes: Routes = [
       { path: 'registration', component: RegistrationComponent }
     ]
   ,
-}, { path: 'login', component: LoginComponent }
+}, { path: 'login', component: LoginComponent }, 
+{ path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

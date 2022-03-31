@@ -8,8 +8,8 @@ import { HttpClient } from "@angular/common/http";
 export class UserService {
 
   constructor( private http: HttpClient) { }
-  readonly BaseURI = 'https://casptonesprinters.azurewebsites.net/api';
-
+  //readonly BaseURI = 'https://casptonesprinters.azurewebsites.net/api';
+  readonly BaseURI = 'http://localhost:54277/api';
  
   register(email : string, name : string , pcode : string) {
     
