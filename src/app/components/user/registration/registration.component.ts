@@ -29,7 +29,7 @@ export class RegistrationComponent implements OnInit {
 
   submit() {
 
-   
+    
     console.log(this.form.value.email, this.form.value.name, this.form.value.PostalCode)
     this.service.register(this.form.value.email, this.form.value.name, this.form.value.PostalCode).subscribe(
       (res: any) => {
@@ -58,9 +58,6 @@ export class RegistrationComponent implements OnInit {
             }
           });
 
-          //setTimeout(function(){ location.reload(); }, 5000);
-          // setTimeout(() =>{this.router.navigate(['/login']);}, 5000);
-          //this.router.navigate(['/login']);
         }
       }
 
@@ -70,7 +67,6 @@ export class RegistrationComponent implements OnInit {
 
 
   sendMail(){
-    alert("jjj");
     let email  = this.form.value.email;
     let reqObj = {
       email:email
