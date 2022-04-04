@@ -9,17 +9,21 @@
     </mat-card-title>
   
     <div class="example">
+      <!-- On form submission it executes submit() method -->
 <form [formGroup]="form" (ngSubmit)="submit()">
 
     <mat-icon>perm_identity</mat-icon>
     <mat-form-field class="field" appearance="fill">
+
+      <!-- Take input from user - username -->
       <mat-label>Username</mat-label>
       <input matInput formControlName="UserName" id="UserName" type="text">
-
       <div *ngIf="f['UserName'].touched && f['UserName'].invalid" class="alert-danger">
         <div *ngIf="f['UserName'].errors && f['UserName'].errors['required']">Name is required.</div>
-        <div *ngIf="f['UserName'].errors && f['UserName'].errors['minlength']">Name should be atleast 3 characters long.</div>
-        <div *ngIf="f['UserName'].errors && f['UserName'].errors['maxlength']">Name should not be more than 20 characters long.</div>
+        <div *ngIf="f['UserName'].errors && f['UserName'].errors['minlength']">Name should be atleast 
+          3 characters long.</div>
+        <div *ngIf="f['UserName'].errors && f['UserName'].errors['maxlength']">Name should not be 
+          more than 20 characters long.</div>
       </div>
 
     </mat-form-field>
@@ -28,6 +32,8 @@
 
     <mat-icon>home</mat-icon>
     <mat-form-field class="field" appearance="fill">
+
+      <!-- Take input from user - postal code -->
       <mat-label>Postal Code</mat-label>
       <input matInput #postalCode maxlength="7" placeholder="Ex. A1A 1A1" value="A1A 1A1" onKeyup ='this.value = this.value.toUpperCase();' formControlName="PostalCode"
         id="PostalCode" type="text">
@@ -39,8 +45,10 @@
           (Ex. A1B 2C3)</div>
       </div>
     </mat-form-field> <br>
+    <!-- Button to submit the inputs -->
     <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
   </form>
+  <a class="black" [routerLink]="'/user/registration'" align="center" class="linkcss">Register</a>
   </div>
   </mat-card>
 </div>

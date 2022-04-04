@@ -14,7 +14,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-   form = new FormGroup({
+
+  //defining the form validators
+   form = new FormGroup
+   ({
     UserName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     PostalCode: new FormControl('', [Validators.required, Validators.maxLength(7)])
   });
@@ -22,21 +25,33 @@ export class LoginComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-  submit(){
-   // console.log(this.form.value)
-    
+
+  submit()
+  {
     this.service.login(this.form.value).subscribe(
-      (res: any) => {
+      (res: any) => 
+      {
         console.log(res)
-        //this.router.navigateByUrl('/home');
         this.form.reset();
-          this.toastr.success('New user created!', 'Login successful.');
-          setTimeout(() => { this.router.navigate(['/home']); }, 200);
+        //Displays the success popup msg
+          this.toastr.success('Welcome to NOTL', 'Login successful.');
+          setTimeout
+          (
+            () => 
+              { 
+                //navigates to the home page after 2 miliseconds.
+                this.router.navigate(['/home']); 
+              }, 
+          200);
       },
-      err => {
+      err => 
+      {
+        //if there is an error of incorrect username or postal code it displays the below msg
         if (err.status == 400)
           this.toastr.error('Incorrect Username or Postal Code.', 'Authentication failed.');
-        else{
+        //else it will display the error message in the console
+        else
+        {
           console.log(err);
           console.log(this.form.value)
         }
